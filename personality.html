@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>a website</title>
+
+        <style>
+            body{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size:4vw;
+            background-color: rgb(255, 225, 230);
+            padding-left:3vw;
+            padding-right:3vw;
+            text-align: center;
+            color:rgb(255, 0, 140);
+            }
+            
+            button{
+		    all: unset;
+		    color:rgb(235, 79, 235);
+		    text-decoration:underline
+		    }
+            button:hover{
+            color:purple;
+            cursor:pointer;
+            text-decoration:underline
+            }
+
+            .big{
+            font-size:6.6vw;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>
+            <span class="big">Welcome to the super accurate personality test</span>
+        </p>
+        <p>
+            who r u? les find out hehehehe
+        </p>
+        <p>
+            <span id="qSpan">Start Here:</span>
+        </p>
+        <p style="line-height: 1.5; font-size: 3.5vw;">
+            <span id="aSpan"><button onclick="Q1()" class="big">START</button></span>
+            <br><span id="bSpan"><!-- <button>not start</button> --></span>
+            <br><span id="cSpan"><!-- <button>also not start</button> --></span>
+            <br><span id="dSpan"><!-- <button>not start...</button> --></span>
+        </p>
+
+        <!-- 1 Choose your name -->
+        <!-- A.Andreas -->
+        <!-- B.Daffodil -->
+        <!-- C.M M Weller-->
+        <!-- D.Steve -->
+
+        <!-- 2 Where would you take your date to? -->
+        <!-- A.The beach with hot beach boys -->
+        <!-- B.Cat cafe with cute cats that will steal yo dates heart -->
+        <!-- C.Your house. suspicious... -->
+        <!-- D.The oh holy church -->
+        
+        <!-- 3 Choose a game to play with your date -->
+        <!-- A.Mario Kart 8 Deluxe -->
+        <!-- B.Terraria -->
+        <!-- C.Overcooked!-->
+        <!-- D.Crab game -->
+        
+        <!-- 4 What's your choice of color? -->
+        <!-- A.Pink like a heart -->
+        <!-- B.Blue like the sadness in yo heart -->
+        <!-- C.Orange like Ed Sheeran(ginger)-->
+        <!-- D.Red like yo enemies blood -->
+
+        <!-- 5 Pick more color -->
+        <!-- A.Green like bacteria -->
+        <!-- B.Black like yo soul -->
+        <!-- C.Yellow like my pisskink-->
+        <!-- D.Purple like the galaxy -->
+
+        <!-- 6 How would you murder someone? -->
+        <!-- A.Average stab method -->
+        <!-- B.Beastmode -->
+        <!-- C.Super saiyan 1.000.000-->
+        <!-- D.Making them watch Dani -->
+        
+        <!-- 7 Where would you murder someone? -->
+        <!-- A.Victims house -->
+        <!-- B.Scary, dark alley -->
+        <!-- C.In the forest-->
+        <!-- D.You wouldnt murder someone cuz y -->
+        
+        <!-- 8 What do you do in class? -->
+        <!-- A.throw paper airplanes at the teacher -->
+        <!-- B.talk with your friends -->
+        <!-- C.Listen quietly to the lecture-->
+        <!-- D.Sleep. -->
+        
+        
+        <script>
+            const qSpan = document.getElementById("qSpan");
+            const aSpan = document.getElementById("aSpan");
+            const bSpan = document.getElementById("bSpan");
+            const cSpan = document.getElementById("cSpan");
+            const dSpan = document.getElementById("dSpan");
+            let currentQ = 0;
+            let currentA = "A";
+            
+            let Angler = 0;
+            let NineTail = 0;
+            let Huntress = 0;
+            let Tohru = 0;
+            let Cell = 0;
+            let Naruto = 0;
+            let Speedwagon = 0;
+            let Chopper = 0;
+            let Kakashi = 0;
+            let Toad = 0;
+            let Guide = 0;
+            
+            function Q1() {
+                currentQ ++
+                qSpan.textContent = "Question 1: Choose a name out of these 4:"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q2();">Andreas</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q2();">Daffodil</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q2();">M. M. Weller</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q2();">Steve</button>';
+                
+            }
+
+            function Q2() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 2: Where would you take your date to?"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q3();">The beach with hot beach boys</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q3();">Cat cafe with cute cats that will steal yo dates heart</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q3();">Your house. suspicious...</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q3();">The oh holy church</button>';
+            }
+
+            function Q3() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 3: Choose a game to play with your date:"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q4();">Mario Kart 8 Deluxe</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q4();">Terraria</button>';                
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q4();">Overcooked!</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q4();">Crab Game</button>';
+            }
+
+            function Q4() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 4: What's your choice of color?"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q5();">Pink like a heart</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q5();">Blue like the sadness in yo heart</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q5();">Orange like Ed Sheeran(ginger)</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q5();">Red like yo enemies blood</button>';
+            }
+
+            function Q5() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 5: Pick more color"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q6();">Green like bacteria</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q6();">Black like yo soul</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q6();">Yellow like my pisskink</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q6();">Purple like the galaxy</button>';
+            }
+            
+            function Q6() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 6: How would you murder someone?"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q7();">Average stab method</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q7();">Beastmode</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q7();">Super saiyan 1.000.000</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q7();">Making them watch Dani</button>';
+            }
+
+            function Q7() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 7: Where would you murder someone?"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q8();">Victims house</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q8();">Scary, dark alley</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q8();">In the forest</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q8();">You wouldnt murder someone cuz y</button>';
+            }
+
+            function Q8() {
+                CharacterCalc()
+                currentQ ++
+                qSpan.textContent = "Question 8: What do you do in class?"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q9();">throw paper airplanes at the teacher</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q9();">talk with your friends</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q9();">Listen quietly to the lecture</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q9();">Sleep</button>';
+            }
+
+            function Q9() {
+                CharacterCalc()
+                currentQ ++ //This is the end of the quiz
+                endOfQuiz()
+                /* qSpan.textContent = "Question 8: What do you do in class?"
+                aSpan.innerHTML = '<button onclick="currentA = `A`; Q9();">throw paper airplanes at the teacher</button>';
+                bSpan.innerHTML = '<button onclick="currentA = `B`; Q9();">talk with your friends</button>';
+                cSpan.innerHTML = '<button onclick="currentA = `C`; Q9();">Listen quietly to the lecture</button>';
+                dSpan.innerHTML = '<button onclick="currentA = `D`; Q9();">Sleep</button>'; */
+            }
+            
+            function endOfQuiz(){
+                //do final results here!! add picture of the character!!
+
+                let resultNumber = Math.max(Angler, NineTail, Huntress, Tohru, Cell, Naruto, Speedwagon, Chopper, Kakashi, Toad, Guide)
+                console.log(resultNumber)
+                // above returns a number, link that back to a character below:
+                // <img src=""> //copy this anytime baby owo
+                switch(resultNumber){
+                    case Angler:
+                        qSpan.textContent="Your result is: The Angler!"
+                        aSpan.innerHTML='<img src="angler.png">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case NineTail:
+                        qSpan.textContent="Your result is: The Nine Tailed Fox!"
+                        aSpan.innerHTML='<img src="ninetail.webp">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Huntress:
+                        qSpan.textContent="Your result is: Huntress!"
+                        aSpan.innerHTML='<img src="huntress.webp">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        dSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Tohru:
+                        qSpan.textContent="Your result is: Tohru!"
+                        aSpan.innerHTML='<img src="tohru.jpg">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Cell:
+                        qSpan.textContent="Your result is: Cell!"
+                        aSpan.innerHTML='<img src="cell.avif">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Naruto:
+                        qSpan.textContent="Your result is: Naruto!"
+                        aSpan.innerHTML='<img src="naruto.jpg">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Speedwagon:
+                        qSpan.textContent="Your result is: Speedwagon!"
+                        aSpan.innerHTML='<img src="speedwagon.webp">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Chopper:
+                        qSpan.textContent="Your result is: Chopper!"
+                        aSpan.innerHTML='<img src="chopper.webp">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Kakashi:
+                        qSpan.textContent="Your result is: Kakashi!"
+                        aSpan.innerHTML='<img src="kakashi.webp">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Toad:
+                        qSpan.textContent="Your result is: Toad!"
+                        aSpan.innerHTML='<img src="toad.webp">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                    case Guide:
+                        qSpan.textContent="Your result is: The Guide!"
+                        aSpan.innerHTML='<img src="guide.png">'
+                        cSpan.innerHTML='<button onclick="allResults();">Click here to see your scores for all the available Characters!</button>'
+                        bSpan.textContent=''
+                        dSpan.textContent=''
+                    break;
+                }
+            }
+
+            function allResults(){
+                window.alert(`The Angler: ` + Angler + `\nNine Tails: ` + NineTail + `\nHuntress: ` + Huntress + `\nTohru: ` + Tohru + `\nCell: ` + Cell + `\nNaruto` + Naruto + `\nSpeedwagon` + Speedwagon + `\nChopper` + Chopper + `\nKakashi` + Kakashi + `\nToad` + Toad + `\nGuide` + Guide )
+            }
+            
+            function CharacterCalc() {
+                switch (currentQ){
+                    case 1:
+                        if(currentA === 'A'){
+                            Huntress++
+                            Angler++
+                        } else if (currentA === 'B'){
+                            Tohru++
+                            Chopper++
+                            Toad++
+                        } else if (currentA === 'C'){
+                            NineTail++
+                            Speedwagon++
+                            Kakashi++
+                        } else if (currentA === 'D'){
+                            Cell++
+                            Naruto++
+                            Guide++
+                        }
+                    break;
+                    case 2:
+                        if(currentA === 'A'){
+                            Angler++
+                            Guide++
+                        } else if (currentA === 'B'){
+                            Tohru++
+                            NineTail++
+                            Chopper++
+                        } else if (currentA === 'C'){
+                            Huntress++
+                            Cell++
+                            Naruto++
+                        } else if (currentA === 'D'){
+                            Speedwagon++
+                            Kakashi++
+                            Toad++
+                        }
+                    break;
+                    case 3:
+                        if(currentA === 'A'){
+                            Naruto++
+                            Kakashi++
+                            Toad++
+                        } else if (currentA === 'B'){
+                            Guide++
+                            Angler++
+                        } else if (currentA === 'C'){
+                            Tohru++
+                            Speedwagon++
+                        } else if (currentA === 'D'){
+                            Huntress++
+                            NineTail++
+                            Cell++
+                            Chopper++
+                        }
+                    break;
+                    case 4:
+                        if(currentA === 'A'){
+                            Tohru++
+                            Chopper++
+                        } else if (currentA === 'B'){
+                            Angler++
+                            Guide++
+                            Kakashi++
+                        } else if (currentA === 'C'){
+                            Naruto++
+                            NineTail++
+                        } else if (currentA === 'D'){
+                            Cell++
+                            Huntress++
+                            Toad++
+                            Speedwagon++
+                        }
+                    break;
+                    case 5:
+                        if(currentA === 'A'){
+                            Cell++
+                            Guide++
+                        } else if (currentA === 'B'){
+                            Huntress++
+                            NineTail++
+                            Kakashi++
+                        } else if (currentA === 'C'){
+                            Angler++
+                            Naruto++
+                            Toad++
+                        } else if (currentA === 'D'){
+                            Chopper++ 
+                        }
+                    break;
+                    case 6:
+                        if(currentA === 'A'){
+                            Angler++
+                            Speedwagon++
+                            Guide++
+                            Kakashi++
+                        } else if (currentA === 'B'){
+                            Huntress++
+                            NineTail++
+                            Naruto++
+                            Toad++
+                        } else if (currentA === 'C'){
+                            Cell++
+                        } else if (currentA === 'D'){
+                            Tohru++
+                            
+                        }
+                    break;
+                    case 7:
+                        if(currentA === 'A'){
+                            Toad++
+                            Guide++
+                        } else if (currentA === 'B'){
+                            Huntress++
+                            NineTail++
+                            Naruto++
+                            Speedwagon++
+
+                        } else if (currentA === 'C'){
+                            Huntress++
+                            NineTail++
+                            Angler++
+                            Cell++
+                            kakashi++
+                        } else if (currentA === 'D'){
+                            Chopper++
+                            Tohru++
+                            
+                        }
+                    break;
+                    case 8:
+                        if(currentA === 'A'){
+                            Cell++
+                            Naruto++
+                            Toad++
+                        } else if (currentA === 'B'){
+                            Guide++
+                            Chopper++
+                        } else if (currentA === 'C'){
+                            Tohru++
+                            Huntress++
+                            Speedwagon++
+                            Kakashi++
+                        } else if (currentA === 'D'){
+                            NineTail++
+                            Angler++
+                        }
+                    break;
+                    default:
+                        //This is at the end of the quiz!!
+                        endOfQuiz()
+                    break;
+                }
+            }
+        </script>
+    </body>
+</html>
